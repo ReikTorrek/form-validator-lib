@@ -3,6 +3,7 @@ use App\Form;
 
 require_once 'app/Form.php';
 require_once '../vendor/autoload.php';
+
 $data = ['name' => 'Vasya', 'login' => 'Vasya123'];
 $form = new Form($data);
 
