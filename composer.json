@@ -1,0 +1,10 @@
+{
+  "autoload": {
+    "psr-4": {
+      "app\\": "src/app/"
+    }
+  },
+  "require": {
+    "larapack/dd": "1.*"
+  }
+}
