@@ -41,4 +41,9 @@ trait HandlesValidation
     {
         return strlen($value) <= $length;
     }
+
+    private function len(string $value, int $length): bool
+    {
+        return strlen($value) == $length;
+    }
 }
