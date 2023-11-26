@@ -1,14 +1,25 @@
 <?php
 namespace App;
 
-use App\Handlers\HandlesValidation;
+use App\Helpers\FunctionHelper;
 use Exception;
+use App\Handlers\HandlesValidation;
 
-require_once 'handlers/HandlesValidation.php';
 
+/**
+ * <summary>
+ * Validate array of data with rules.
+ * </summary>
+ *
+ * <remarks>
+ * you can check string, int/integer, bool, array, double etc. basic types
+ * if you need to check field for required (not empty) use required
+ * </remarks>
+ */
 class Form
 {
     use HandlesValidation;
+    use FunctionHelper;
 
     public array $form;
 
@@ -25,14 +36,11 @@ class Form
         foreach ($data as $name => $rules) {
             $rules = $this->prepareRules($rules);
             foreach ($rules as $rule) {
-                if (!is_array($rule) && method_exists($this, $rule)) {
-                    $result = call_user_func([$this, $rule], $this->form[$name]);
-                } else {
-                    $result = call_user_func([$this, $rule[0]], $this->form[$name], $rule[1]);
+                if (!$this->callIfExists($rule, $this->form[$name])) {
+                    return false;
                 }
-                dump($result);
             }
         }
-        return false;
+        return true;
     }
 }

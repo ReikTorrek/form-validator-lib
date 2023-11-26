@@ -1,7 +1,9 @@
 {
   "autoload": {
     "psr-4": {
-      "app\\": "src/app/"
+      "App\\": "html/app/",
+      "App\\Handlers\\": "html/app/handlers/",
+      "App\\Helpers\\": "html/app/helpers/"
     }
   },
   "require": {
