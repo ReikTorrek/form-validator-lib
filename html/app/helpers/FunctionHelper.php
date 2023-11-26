@@ -27,6 +27,7 @@ trait FunctionHelper
     /**
      * @throws Exception
      */
+    //Maybe its better try to write on spread operator...
     private function callIfExists(string $functionName, mixed $param): mixed
     {
         if (function_exists($this->makeFunctionName($functionName))) {
