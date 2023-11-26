@@ -13,6 +13,7 @@ trait FunctionHelper
         return $this->functionPrefix . $ruleName;
     }
 
+    //Not the best solution I think, but I want to add min/max rule. And this is the best way I found.
     private function getFunctionNameFromCompositeRule(string $ruleName): string|bool
     {
         return strstr($ruleName, ':', true);
@@ -34,6 +35,7 @@ trait FunctionHelper
         if (method_exists($this, $functionName)) {
             return call_user_func([$this, $functionName], $param);
         }
+        //Maybe I should wrap line here...
         if (method_exists($this, $this->getFunctionNameFromCompositeRule($functionName)) && $this->getParamFromCompositeRule($functionName)) {
             return call_user_func([$this, $this->getFunctionNameFromCompositeRule($functionName)], $param, $this->getParamFromCompositeRule($functionName));
         }
@@ -43,6 +45,7 @@ trait FunctionHelper
     /**
      * @throws Exception
      */
+    //I can create additional helper for this type of functions, but still its only one, it can be here to avoid Over-engineering
     private function throwIf(string $message, bool $condition): void
     {
         if ($condition) {
