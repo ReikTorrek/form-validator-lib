@@ -12,7 +12,8 @@ use App\Handlers\HandlesValidation;
  * </summary>
  *
  * <remarks>
- * you can check string, int/integer, bool, array, double etc. basic types
+ * you can check string, int/integer, bool, double etc. basic types
+ * only type rule for array validation
  * if you need to check field for required (not empty) use required
  * you can use composite rule names to validate min and max length of value. Use min:{integerNumber} or max:{integerNumber}
  * </remarks>
