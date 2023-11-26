@@ -14,6 +14,7 @@ use App\Handlers\HandlesValidation;
  * <remarks>
  * you can check string, int/integer, bool, array, double etc. basic types
  * if you need to check field for required (not empty) use required
+ * you can use composite rule names to validate min and max length of value. Use min:{integerNumber} or max:{integerNumber}
  * </remarks>
  */
 class Form
